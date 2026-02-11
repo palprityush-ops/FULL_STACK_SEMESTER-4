@@ -12,4 +12,8 @@ def create_app():
     from app.routes import main
     app.register_blueprint(main)
 
+    # Create database tables
+    with app.app_context():
+        db.create_all()
+
     return app
