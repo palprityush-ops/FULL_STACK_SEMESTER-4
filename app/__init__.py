@@ -17,3 +17,8 @@ def create_app():
         db.create_all()
 
     return app
+
+
+# Expose a package-level `app` so WSGI servers can import `app:app`.
+# This keeps existing `run.py` and `wsgi.py` behaviour unchanged.
+app = create_app()
